@@ -51,6 +51,13 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']['.&ft.']'}
 "カーソルキーで行末／行頭の移動可能に設定
 set whichwrap=b,s,[,],<,>
 
+" ファイルタイプごとに辞書ファイルを指定
+autocmd FileType vim :set dictionary+=~/.vim/dict/vim_functions.dict
+autocmd FileType php :set dictionary+=~/.vim/dict/php_functions.dict
+
+"辞書ファイルを使用する設定に変更
+set complete+=k
+
 "-----------------------
 " tab
 "------------------------
