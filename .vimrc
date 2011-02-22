@@ -8,6 +8,7 @@ call pathogen#helptags()
 " neocomplcache
 "------------------------
 let g:neocomplcache_enable_at_startup = 1
+let g:ref_phpmanual_path = $HOME . '/phpmanual'
 
 "------------------------
 " settings
@@ -40,6 +41,12 @@ set showtabline=2
 "タブ文字可視化
 set list
 set listchars=tab:>\ 
+
+"swapファイル作らない
+set noswapfile
+
+"backupしない
+set nobackup
 
 "他で編集されたら読み込み直す
 set autoread
@@ -121,6 +128,9 @@ vnoremap <C-j> <esc>
 "タブ切り替え
 nnoremap <C-l> gt
 nnoremap <C-h> gT
+
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
 
 "------------------------
 " nano settings
