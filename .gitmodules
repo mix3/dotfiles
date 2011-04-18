@@ -22,3 +22,6 @@
 [submodule ".gittools"]
 	path = .gittools
 	url = https://github.com/tyru/gittools.git
+[submodule ".vim/bundle/commentout.vim.gist"]
+	path = .vim/bundle/commentout.vim.gist
+	url = git://gist.github.com/925377.git
