@@ -8,6 +8,7 @@ call pathogen#helptags()
 " neocomplcache
 "------------------------
 let g:neocomplcache_enable_at_startup = 1
+let g:ref_phpmanual_path = $HOME . '/phpmanual'
 
 "------------------------
 " settings
@@ -41,6 +42,12 @@ set showtabline=2
 set list
 set listchars=tab:>\ 
 
+"swapファイル作らない
+set noswapfile
+
+"backupしない
+set nobackup
+
 "他で編集されたら読み込み直す
 set autoread
 
@@ -50,6 +57,13 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']['.&ft.']'}
 
 "カーソルキーで行末／行頭の移動可能に設定
 set whichwrap=b,s,[,],<,>
+
+" ファイルタイプごとに辞書ファイルを指定
+autocmd FileType vim :set dictionary+=~/.vim/dict/vim_functions.dict
+autocmd FileType php :set dictionary+=~/.vim/dict/php_functions.dict
+
+"辞書ファイルを使用する設定に変更
+set complete+=k
 
 "-----------------------
 " tab
@@ -114,6 +128,9 @@ vnoremap <C-j> <esc>
 "タブ切り替え
 nnoremap <C-l> gt
 nnoremap <C-h> gT
+
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
 
 "------------------------
 " nano settings
