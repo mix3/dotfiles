@@ -22,3 +22,9 @@
 [submodule ".gittools"]
 	path = .gittools
 	url = https://github.com/tyru/gittools.git
+[submodule ".vim/ftplugin/markdown_fold.vim"]
+	path = .vim/ftplugin/markdown_fold.vim
+	url = git://gist.github.com/318544.git
+[submodule ".vim/plugin/commentout.vim"]
+	path = .vim/plugin/commentout.vim
+	url = git://gist.github.com/627466.git
