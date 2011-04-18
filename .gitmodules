@@ -25,6 +25,6 @@
 [submodule ".vim/bundle/gist/plugin/commentout.vim.gist"]
 	path = .vim/bundle/gist/plugin/commentout.vim.gist
 	url = git://gist.github.com/925377.git
-[submodule ".vim/bundle/gist/plugin/markdown_fold.vim.gist"]
-	path = .vim/bundle/gist/plugin/markdown_fold.vim.gist
+[submodule ".vim/bundle/gist/ftplugin/markdown_fold.vim.gist"]
+	path = .vim/bundle/gist/ftplugin/markdown_fold.vim.gist
 	url = git://gist.github.com/318544.git
