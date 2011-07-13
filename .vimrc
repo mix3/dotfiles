@@ -47,6 +47,52 @@ set autoread
 " カーソルキーで行末／行頭の移動可能に設定
 set whichwrap=b,s,[,],<,>
 
+" タブラインの設定
+" from :help setting-tabline
+set tabline=%!MyTabLine()
+
+function! MyTabLine()
+  let s = ''
+  for i in range(tabpagenr('$'))
+" 強調表示グループの選択
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+
+" タブページ番号の設定 (マウスクリック用)
+    let s .= '%' . (i + 1) . 'T'
+
+" ラベルは MyTabLabel() で作成する
+    let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+  endfor
+
+" 最後のタブページの後は TabLineFill で埋め、タブページ番号をリセッ
+" トする
+  let s .= '%#TabLineFill#%T'
+
+" カレントタブページを閉じるボタンのラベルを右添えで作成
+  if tabpagenr('$') > 1
+    let s .= '%=%#TabLine#%999Xclose'
+  endif
+
+  return s
+endfunction
+
+function! MyTabLabel(n)
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  return expand("#".buflist[winnr - 1].":t")
+endfunction
+
+"タブ切り替え
+nnoremap <C-l> gt
+nnoremap <C-h> gT
+
+" 開いてるファイルにのディレクトリに移動
+command! -nargs=0 CD :execute 'lcd ' . expand("%:p:h")
+
 " エンコード自動判別
 if &encoding !=# 'utf-8'
   set encoding=japan
