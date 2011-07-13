@@ -18,7 +18,9 @@ call vundle#rc()
 
 Bundle 'Shougo/neocomplcache'
 
-filetype plugin indent on
+" filetype plugin indent on
+
+let g:neocomplcache_enable_at_startup = 1
 
 " 色設定
 syntax on
