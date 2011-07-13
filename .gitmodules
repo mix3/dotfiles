@@ -1,27 +1,3 @@
-[submodule ".vim/bundle/vim-pathogen.git"]
-	path = .vim/bundle/vim-pathogen.git
-	url = git://github.com/tpope/vim-pathogen.git
-[submodule ".vim/bundle/vim-symfony.git"]
-	path = .vim/bundle/vim-symfony.git
-	url = git://github.com/soh335/vim-symfony.git
-[submodule ".vim/bundle/neocomplcache.git"]
-	path = .vim/bundle/neocomplcache.git
-	url = git://github.com/Shougo/neocomplcache.git
-[submodule ".vim/bundle/vim-quickrun.git"]
-	path = .vim/bundle/vim-quickrun.git
-	url = git://github.com/thinca/vim-quickrun.git
-[submodule ".vim/bundle/vim-ref.git"]
-	path = .vim/bundle/vim-ref.git
-	url = git://github.com/thinca/vim-ref.git
-[submodule ".vim/bundle/eregex.vim.git"]
-	path = .vim/bundle/eregex.vim.git
-	url = git://github.com/othree/eregex.vim.git
-[submodule ".gittools"]
-	path = .gittools
-	url = https://github.com/tyru/gittools.git
-[submodule ".vim/bundle/vim-ft-markdown_fold.git"]
-	path = .vim/bundle/vim-ft-markdown_fold.git
-	url = git://github.com/thinca/vim-ft-markdown_fold.git
-[submodule ".vim/bundle/commentout.vim.gist"]
-	path = .vim/bundle/commentout.vim.gist
-	url = git://gist.github.com/925377.git
+[submodule "/home/mix3/dotfiles/vimfiles/vundle.git"]
+	path = /home/mix3/dotfiles/vimfiles/vundle.git
+	url = http://github.com/gmarik/vundle.git
