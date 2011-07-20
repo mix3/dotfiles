@@ -28,5 +28,5 @@ if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
 fi
 
 if [ -f ~/dotfiles/.perl.bashrc ]; then
-	source ~/dotfiles/.perl.bashrc
+	source ~/.perl.bashrc
 fi
