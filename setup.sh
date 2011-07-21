@@ -1,8 +1,9 @@
 #!/bin/sh
 
 RUN_DIR=$(cd $(dirname $0);pwd)
-IGNORE=".git$|.gitignore|.gitmodules"
-LIST=`ls $RUN_DIR -al | awk '{print $9}' | egrep '^\.[^\.]+' | egrep -v $IGNORE | xargs`
+LIST=`ls -al $RUN_DIR | awk '{print $9}' | egrep '^\.[^\.]+' | egrep -v .git | xargs`
+INCLUDE=".gitconfig"
+LIST="$LIST $INCLUDE"
 
 for FILE in $LIST
 do
