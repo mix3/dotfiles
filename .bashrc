@@ -27,6 +27,10 @@ if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
 	source ~/perl5/perlbrew/etc/bashrc
 fi
 
-if [ -f ~/dotfiles/.perl.bashrc ]; then
+if [ -f ~/.perl.bashrc ]; then
 	source ~/.perl.bashrc
+fi
+
+if [ -f ~/.local.bashrc ]; then
+	source ~/.local.bashrc
 fi
