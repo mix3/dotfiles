@@ -21,7 +21,7 @@ function gr() {
 }
 
 # default /usr/kerberos/bin:/usr/local/bin:/bin:/usr/bin:/home/mix3/bin
-export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/sbin
 
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
 	source ~/perl5/perlbrew/etc/bashrc
