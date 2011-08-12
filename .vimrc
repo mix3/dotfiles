@@ -17,6 +17,7 @@ set rtp+=~/.vim/vundle/
 call vundle#rc()
 
 Bundle 'Shougo/neocomplcache'
+Bundle 'rosstimson/scala-vim-support'
 
 " filetype plugin indent on
 
