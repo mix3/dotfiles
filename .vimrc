@@ -10,12 +10,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'thinca/vim-localrc'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
 
-" {{{ nerdtree
-  map <C-n> :NERDTreeToggle<CR>
+" nerdtree {{{
+  nnoremap <C-n> :NERDTreeToggle<CR>
 " }}}
 
-" {{{ neocomplcache
+" neocomplcache {{{
   " Use neocomplcache.
   let g:neocomplcache_enable_at_startup = 1
   " Use smartcase.
@@ -28,6 +29,26 @@ NeoBundle 'Shougo/neocomplcache'
   let g:neocomplcache_disable_auto_complete = 1
   " <BS>: close popup and delete backword char.
   "inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+" }}}
+
+" neosnippet {{{
+  " Plugin key-mappings.
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+  " SuperTab like snippets behavior.
+  imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: pumvisible() ? "\<C-n>" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: "\<TAB>"
+
+  " For snippet_complete marker.
+  if has('conceal')
+    set conceallevel=2 concealcursor=i
+  endif
 " }}}
 
 filetype plugin indent on
@@ -91,6 +112,14 @@ set whichwrap=b,s,[,],<,>
 
 " 検索文字列のハイライト
 set hlsearch
+
+" インサートモード時にバックスペースを使う
+set backspace=indent,eol,start
+
+" .t .psgi もperl syntax で
+autocmd BufNewFile,BufRead *.psgi set filetype=perl
+autocmd BufNewFile,BufRead *.t    set filetype=perl
+autocmd BufNewFile,BufRead *.tx   set filetype=html
 
 " タブラインの設定
 " from :help setting-tabline
