@@ -8,9 +8,27 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'thinca/vim-localrc'
-NeoBundle 'Shougo/unite.vim'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
+
+" {{{ nerdtree
+  map <C-n> :NERDTreeToggle<CR>
+" }}}
+
+" {{{ neocomplcache
+  " Use neocomplcache.
+  let g:neocomplcache_enable_at_startup = 1
+  " Use smartcase.
+  let g:neocomplcache_enable_smart_case = 1
+  " Use camel case completion.
+  let g:neocomplcache_enable_camel_case_completion = 1
+  " Use underbar completion.
+  let g:neocomplcache_enable_underbar_completion = 1
+  " Disable auto completion
+  let g:neocomplcache_disable_auto_complete = 1
+  " <BS>: close popup and delete backword char.
+  "inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+" }}}
 
 filetype plugin indent on
 
@@ -177,4 +195,5 @@ if exists('&ambiwidth')
   set ambiwidth=double
 endif
 
+filetype plugin indent on
 filetype on
