@@ -1,30 +1,30 @@
-" {{{ 場所ごとの設定
-augroup vimrc-local
-	autocmd!
-	autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
-augroup END
-function! s:vimrc_local(loc)
-	let files = findfile('.vimrc.local', escape(a:loc, ' ') . ';', -1)
-	for i in reverse(filter(files, 'filereadable(v:val)'))
-		source `=i`
-	endfor
-endfunction
-" }}}
+if has('vim_starting')
+  set nocompatible
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-set nocompatible
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'thinca/vim-localrc'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+
+filetype plugin indent on
+
+NeoBundleCheck
+
 filetype off
-set rtp+=~/.vim/vundle/
-call vundle#rc()
+filetype plugin indent off
 
-Bundle 'Shougo/neocomplcache'
-Bundle 'rosstimson/scala-vim-support'
-
-" filetype plugin indent on
-
-let g:neocomplcache_enable_at_startup = 1
+" vi互換off
+set nocompatible
 
 " 色設定
 syntax on
+colorscheme peachpuff
 
 " タブの設定 タブのまま 幅4
 set softtabstop=0
@@ -34,7 +34,30 @@ set autoindent
 
 " タブ文字可視化
 set list
-set listchars=tab:>\ 
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
+
+" 全角スペース・行末のスペース・タブの可視化
+if has("syntax")
+  syntax on
+
+  " PODバグ対策
+  syn sync fromstart
+
+  function! ActivateInvisibleIndicator()
+    " 下の行の"　"は全角スペース
+    syntax match InvisibleJISX0208Space "　" display containedin=ALL
+    highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=darkgray gui=underline
+    "syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
+    "highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=NONE gui=undercurl guisp=darkorange
+    "syntax match InvisibleTab "\t" display containedin=ALL
+    "highlight InvisibleTab term=underline ctermbg=white gui=undercurl guisp=darkslategray
+  endfunction
+
+  augroup invisible
+    autocmd! invisible
+    autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
+  augroup END
+endif
 
 " swapファイル作らない
 set noswapfile
@@ -47,6 +70,9 @@ set autoread
 
 " カーソルキーで行末／行頭の移動可能に設定
 set whichwrap=b,s,[,],<,>
+
+" 検索文字列のハイライト
+set hlsearch
 
 " タブラインの設定
 " from :help setting-tabline
@@ -150,3 +176,5 @@ set fileformats=unix,dos,mac
 if exists('&ambiwidth')
   set ambiwidth=double
 endif
+
+filetype on
