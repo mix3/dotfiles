@@ -9,3 +9,5 @@
     ff = false
 [pull]
     rebase = true
+[core]
+    quotepath = false
