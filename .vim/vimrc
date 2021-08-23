@@ -1,0 +1,57 @@
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
+" vi互換off
+set nocompatible
+
+set laststatus=2
+
+" 色設定
+syntax on
+colorscheme peachpuff
+
+" マウスでカーソル移動
+map <ScrollWheelDown> j
+map <ScrollWheelUp> k
+
+" タブの設定 タブのまま 幅4
+"set shiftwidth=4
+"set tabstop=4
+"set expandtab
+"set smartindent
+set autoindent
+
+" タブ,スペースの可視化
+set list
+set listchars=tab:>-,trail:-
+
+" カーソルキーで行末／行頭の移動可能に設定
+set whichwrap=b,s,[,],<,>
+
+" 検索文字列のハイライト
+set hlsearch
+
+" undo永続化
+if has("persistent_undo")
+    set undodir=~/.vim/undo
+    set undofile
+endif
+
+filetype plugin indent on
+filetype on
+
+packadd minpac
+
+call minpac#init()
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('itchyny/lightline.vim')
+call minpac#add('thinca/vim-zenspace')
+call minpac#add('jparise/vim-graphql')
+call minpac#add('direnv/direnv.vim')
+
+call minpac#add('prabirshrestha/vim-lsp')
+call minpac#add('mattn/vim-lsp-settings')
+call minpac#add('prabirshrestha/asyncomplete.vim')
+call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
+
+call map(sort(split(globpath(&runtimepath, '_config/*.vim'))), {->[execute('exec "so" v:val')]})
