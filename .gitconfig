@@ -1,0 +1,6 @@
+[user]
+    name =  mix3@ｻﾀﾃﾞｰﾅｲﾄﾌｨｰﾊﾞｰ 
+    email = himachocost333@gmail.com
+[init]
+	defaultBranch = main
+	templatedir = /Users/seto-wataru/.git-templates
